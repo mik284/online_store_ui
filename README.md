@@ -1,5 +1,8 @@
 # farmplantui
 
+![80495d964f50b15d4012f641c9dfacb5](https://github.com/mik284/online_store_ui/assets/65639270/53ab0e4c-a7e3-4c84-b8e6-c22bda5e26fc)
+
+
 Mobile online store plant application
 
 ## Getting Started

@@ -1,3 +1,4 @@
+import 'package:farmplantui/page/dashboard.dart';
 import 'package:farmplantui/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,21 +36,26 @@ class LoginPage extends StatelessWidget {
               ],
             ),
             Image.asset("assets/farmer.png",height: 350, width: 460,fit: BoxFit.cover,),
-            const Column(
+             Column(
               children: [
-                ButtonWidget(
-                    color: Color(0xff00b862),
-                    width: 360,
-                    height: 50,
-                    radius: 15,
-                    widget: TextWidget(
-                        text: "Sign Up",
-                        color: Colors.white,
-                        family: "Poppins",
-                        size: 14,
-                        weight: FontWeight.w400,
-                        align: TextAlign.center)),
-                ButtonWidget(
+                InkWell(
+                  child: const ButtonWidget(
+                      color: Color(0xff00b862),
+                      width: 360,
+                      height: 50,
+                      radius: 15,
+                      widget: TextWidget(
+                          text: "Sign Up",
+                          color: Colors.white,
+                          family: "Poppins",
+                          size: 14,
+                          weight: FontWeight.w400,
+                          align: TextAlign.center)),
+                  onTap: () {
+                    Get.to(const Dashboard());
+                  },
+                ),
+                const ButtonWidget(
                     color: Colors.transparent,
                     width: 360,
                     height: 50,
