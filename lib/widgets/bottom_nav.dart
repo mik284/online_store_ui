@@ -20,26 +20,29 @@ class BottomNav extends GetView<DashboardController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ButtonWidget(
-              color: Colors.transparent,
-              width: 100,
-              height: 70,
-              radius: 50,
-              widget: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(e['icon'] as IconData),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  TextWidget(
-                      text: e['title'],
-                      color:  Colors.black,
-                      family: "Poppins",
-                      size:  13,
-                      weight: FontWeight.w400,
-                      align: TextAlign.center),
-                ],
+            Expanded(
+              flex: 1,
+              child: ButtonWidget(
+                color: Colors.transparent,
+                width: 80,
+                height: 70,
+                radius: 50,
+                widget: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(e['icon'] as IconData, color: Color(0xff00b862), size:40),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    // TextWidget(
+                    //     text: e['title'],
+                    //     color:  Colors.black,
+                    //     family: "Poppins",
+                    //     size:  13,
+                    //     weight: FontWeight.w400,
+                    //     align: TextAlign.center),
+                  ],
+                ),
               ),
             ),
           ], // Add closing parenthesis here

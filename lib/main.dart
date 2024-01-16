@@ -1,3 +1,4 @@
+import 'package:farmplantui/controller/dashboard_controller.dart';
 import 'package:farmplantui/page/loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.put(DashboardController());
     return GetMaterialApp(
       title: 'online store plant app',
       theme: ThemeData(
