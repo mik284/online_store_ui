@@ -40,7 +40,9 @@ class ButtonWidget extends StatelessWidget {
               : BorderRadius.circular(radius),
           border: currentview == "createAccount"
               ? Border.all(color: color)
-              : Border.all(color: Colors.white)),
+              : currentview == "bottom"
+                  ? null
+                  : Border.all(color: Colors.white)),
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Center(child: widget),

@@ -42,15 +42,21 @@ class Dashboard extends GetView {
               ),
             ),
           ),
-          actions:  const [
+          actions: const [
             Padding(
-              padding: EdgeInsets.all( 15.0),
-              child: SizedBox( height: 400,width: 100,child: Icon(Icons.search)),
+              padding: EdgeInsets.all(15.0),
+              child:
+                  SizedBox(height: 400, width: 100, child: Icon(Icons.search)),
             )
-
           ],
         ),
-        bottomNavigationBar:
-            SizedBox(width: Get.width, height: 100, child: const BottomNav()));
+
+        bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(50),
+                topRight: Radius.circular(50))),
+            child: SizedBox(
+                width: Get.width, height: 100, child: const BottomNav())));
   }
 }
