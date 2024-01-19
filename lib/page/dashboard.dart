@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../widgets/button_widget.dart';
 import '../widgets/text_widget.dart';
 
-class Dashboard extends GetView {
+class Dashboard extends GetView<DashboardController> {
   const Dashboard({super.key});
 
   @override
@@ -49,75 +49,74 @@ class Dashboard extends GetView {
             )
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Container(
-            height: 100,
-            width: Get.width,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: const Color(0xffffeac9),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // Image.asset('assets/cactus001.jpg', height: 50, fit: BoxFit.cover ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.asset(
-                      'assets/cactus001.jpg',
-                      height: 60,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: RichText(
-                            text: const TextSpan(children: <InlineSpan>[
-                          TextSpan(
-                              text: "How to Raise our Cactus\n",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 17,
-                                  fontFamily: "Poppins")),
-                          WidgetSpan(
-                              child: SizedBox(
-                            height: 25,
-                          )),
-                          TextSpan(
-                              text:
-                                  "How to maintain a happy and \nhealthy cactus. ",
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 13,
-                                  fontFamily: "Poppins")),
-                          WidgetSpan(
-                              child: SizedBox(
-                            height: 20,
-                          )),
-                        ])),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-        bottomNavigationBar: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50))),
-            child: SizedBox(
-                width: Get.width, height: 100, child: const BottomNav())));
+        // body: Padding(
+        //   padding: const EdgeInsets.all(25.0),
+        //   child: Container(
+        //     height: 100,
+        //     width: Get.width,
+        //     decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(20),
+        //       color: const Color(0xffffeac9),
+        //     ),
+        //     child: Padding(
+        //       padding: const EdgeInsets.all(8.0),
+        //       child: Row(
+        //         mainAxisAlignment: MainAxisAlignment.center,
+        //         crossAxisAlignment: CrossAxisAlignment.center,
+        //         children: [
+        //           // Image.asset('assets/cactus001.jpg', height: 50, fit: BoxFit.cover ),
+        //           ClipRRect(
+        //             borderRadius: BorderRadius.circular(15),
+        //             child: Image.asset(
+        //               'assets/cactus001.jpg',
+        //               height: 60,
+        //               fit: BoxFit.cover,
+        //             ),
+        //           ),
+        //           Column(
+        //             children: [
+        //               Padding(
+        //                 padding: const EdgeInsets.all(8.0),
+        //                 child: RichText(
+        //                     text: const TextSpan(children: <InlineSpan>[
+        //                   TextSpan(
+        //                       text: "How to Raise our Cactus\n",
+        //                       style: TextStyle(
+        //                           color: Colors.black,
+        //                           fontWeight: FontWeight.w600,
+        //                           fontSize: 17,
+        //                           fontFamily: "Poppins")),
+        //                   WidgetSpan(
+        //                       child: SizedBox(
+        //                     height: 25,
+        //                   )),
+        //                   TextSpan(
+        //                       text:
+        //                           "How to maintain a happy and \nhealthy cactus. ",
+        //                       style: TextStyle(
+        //                           color: Colors.black54,
+        //                           fontWeight: FontWeight.w500,
+        //                           fontSize: 13,
+        //                           fontFamily: "Poppins")),
+        //                   WidgetSpan(
+        //                       child: SizedBox(
+        //                     height: 20,
+        //                   )),
+        //                 ])),
+        //               )
+        //             ],
+        //           )
+        //         ],
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
+        body: Obx(() => controller.bottomNavWidget()),
+        bottomNavigationBar: SizedBox(
+          width: Get.width,
+          height: 100,
+          child: BottomNav(),
+        ));
   }
 }
