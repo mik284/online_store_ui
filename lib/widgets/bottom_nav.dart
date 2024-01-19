@@ -11,43 +11,57 @@ class BottomNav extends GetView<DashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: controller.bottomNavItems.length,
-      itemBuilder: (BuildContext, index) {
-        var e = controller.bottomNavItems[index];
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 1,
-              child: ButtonWidget(
-                color: Colors.transparent,
-                width: 80,
-                height: 70,
-                radius: 50,
-                widget: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(e['icon'] as IconData, color: Color(0xff00b862), size:40),
-                    const SizedBox(
-                      width: 5,
+    return ButtonWidget(
+        color: Colors.white,
+        width: Get.width,
+        currentview: "bottom",
+        height: Get.height,
+        radius: 30,
+        widget: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: controller.bottomNavItems.length,
+          shrinkWrap: true,
+          itemBuilder: (BuildContext BuildContext, index) {
+            var e = controller.bottomNavItems[index];
+            return InkWell(
+              child: Obx(
+                () => Container(
+                  decoration: BoxDecoration(
+                      color: controller.currentIndex.value == index
+                          ? Color(0xff00b862)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(15)),
+                  width: 70,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(e['icon'] as IconData,
+                            color: controller.currentIndex.value == index
+                                ? Colors.white
+                                : Color(0xff00b862),
+                            size: 40),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        TextWidget(
+                            text: e['title'],
+                            color: controller.currentIndex.value == index
+                                ? Colors.white
+                                : Colors.black,
+                            family: "Poppins",
+                            size: 12,
+                            weight: FontWeight.w400,
+                            align: TextAlign.center),
+                      ],
                     ),
-                    // TextWidget(
-                    //     text: e['title'],
-                    //     color:  Colors.black,
-                    //     family: "Poppins",
-                    //     size:  13,
-                    //     weight: FontWeight.w400,
-                    //     align: TextAlign.center),
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ], // Add closing parenthesis here
-        );
-      },
-    );
+              onTap: () => {controller.currentIndex.value = index},
+            );
+          },
+        ));
   }
 }
